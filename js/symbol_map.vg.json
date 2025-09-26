@@ -1,0 +1,57 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 900,
+    "height": 500,
+    "projection": { "type": "naturalEarth1" },
+    "layer": [
+        {
+            "data": {
+                "url": "ne_110m_admin_0_countries.topojson",
+                "format": {
+                    "type": "topojson",
+                    "feature": "ne_110m_admin_0_countries"
+                }
+            },
+            "mark": { "type": "geoshape", "fill": "#eee", "stroke": "#999" }
+        },
+        {
+            "data": {
+                "url": "ibtracs_first_locations.csv"
+            },
+            "transform": [
+                {
+                    "calculate": "substring(datum.SID, 0, 4)",
+                    "as": "Year"
+                }
+            ],
+            "mark": {
+                "type": "circle",
+                "color": "red",
+                "opacity": 0.6,
+                "size": 50
+            },
+            "encoding": {
+                "longitude": { "field": "LON", "type": "quantitative" },
+                "latitude": { "field": "LAT", "type": "quantitative" },
+                "tooltip": [
+                    {
+                        "field": "LAT",
+                        "type": "quantitative",
+                        "title": "Latitude"
+                    },
+                    {
+                        "field": "LON",
+                        "type": "quantitative",
+                        "title": "Longitude"
+                    },
+                    { "field": "Year", "type": "ordinal", "title": "Year" },
+                    {
+                        "field": "NATURE",
+                        "type": "nominal",
+                        "title": "Storm Type"
+                    }
+                ]
+            }
+        }
+    ]
+}
