@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Load the IBTrACS CSV file
-file_path = "ibtracs_all_list_v04r01.csv"  # adjust if path is different
+file_path = "data/ibtracs_all_list_v04r01.csv"  # adjust if path is different
 df = pd.read_csv(file_path, low_memory=False)
 
 # Preview to identify key columns
@@ -18,7 +18,7 @@ first_points = df_sorted.drop_duplicates(subset=["SID", "NUMBER"], keep="first")
 
 
 # Save to new CSV
-output_path = "ibtracs_first_locations.csv"
+output_path = "data/ibtracs_first_locations.csv"
 first_points.to_csv(output_path, index=False)
 
 print(f"Saved {len(first_points)} first storm locations to {output_path}")
