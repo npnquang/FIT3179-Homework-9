@@ -28,6 +28,22 @@
         },
         {
             "data": {
+                "url": "data/ne_110m_graticules_30.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "ne_110m_graticules_30"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": null,
+                "stroke": "#ddd",
+                "strokeWidth": 0.5,
+                "opacity": 0.7
+            }
+        },
+        {
+            "data": {
                 "url": "https://raw.githubusercontent.com/npnquang/FIT3179-Homework-9/refs/heads/main/data/ibtracs_first_locations.csv"
             },
             "transform": [
